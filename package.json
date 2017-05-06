@@ -40,5 +40,10 @@
   },
   "dependencies": {
     "prismjs": "^1.6.0"
-  }
+  },
+  "keywords": [
+    "slate",
+    "plugin",
+    "markdown"
+  ]
 }
