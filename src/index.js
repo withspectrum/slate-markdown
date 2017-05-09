@@ -5,11 +5,13 @@
 import React from 'react';
 import decorate from './decorator';
 
-type Options = {};
+type Options = {
+  sizes?: Array<string>,
+};
 
-const sizes = ['2.441em', '1.953em', '1.563em', '1.25em'];
+const MarkdownPlugin = (options: Options = {}) => {
+  const sizes = options.sizes || ['2.441em', '1.953em', '1.563em', '1.25em'];
 
-const MarkdownPlugin = (options?: Options) => {
   return {
     schema: {
       marks: {
