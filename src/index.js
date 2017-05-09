@@ -55,6 +55,10 @@ const MarkdownPlugin = (options?: Options) => {
           display: 'block',
           opacity: 0.2,
         },
+        url: {
+          color: 'blue',
+          textDecoration: 'underline',
+        },
       },
       rules: [
         {
