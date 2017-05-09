@@ -7,15 +7,29 @@ import decorate from './decorator';
 
 type Options = {};
 
+const sizes = ['2.441em', '1.953em', '1.563em', '1.25em'];
+
 const MarkdownPlugin = (options?: Options) => {
   return {
     schema: {
       marks: {
-        title: {
-          fontWeight: 'bold',
-          fontSize: '20px',
-          margin: '20px 0 10px 0',
-          display: 'inline-block',
+        title: (props: any) => {
+          const { attributes, children, mark: { data } } = props;
+          const level = data.get('level');
+          const fontSize = (level && sizes[level - 1]) || '1em';
+          return (
+            <span
+              {...attributes}
+              style={{
+                fontWeight: 'bold',
+                fontSize,
+                margin: `1em 0 0.5em 0`,
+                display: 'inline-block',
+              }}
+            >
+              {children}
+            </span>
+          );
         },
         bold: {
           fontWeight: 'bold',

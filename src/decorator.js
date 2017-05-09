@@ -1,6 +1,6 @@
 // @flow
 // $FlowFixMe
-import { Mark } from 'slate';
+import { Mark, Data } from 'slate';
 // $FlowFixMe
 import Prism from 'prismjs';
 
@@ -98,7 +98,14 @@ function addMarks(characters, tokens, offset) {
     }
 
     const { content, length, type } = token;
-    const mark = Mark.create({ type });
+    let level;
+    if (type === 'title') {
+      const hashes = content.find(
+        innerToken => innerToken.type === 'punctuation'
+      );
+      level = hashes.length;
+    }
+    const mark = Mark.create({ type, data: Data.create({ level }) });
 
     for (let i = offset; i < offset + length; i++) {
       let char = characters.get(i);
