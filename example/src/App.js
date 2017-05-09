@@ -35,12 +35,12 @@ class App extends Component {
     const { state, plugins } = this.state;
     return (
       <div>
-        <Heading>Slate Mentions</Heading>
+        <Heading>Slate Markdown</Heading>
         <Editor
           state={state}
           plugins={plugins}
           onChange={this.onChange}
-          placeholder="You can write markdown here! (like ## Hello)"
+          placeholder={'You can write markdown here! (try "## Hello")'}
         />
       </div>
     );
