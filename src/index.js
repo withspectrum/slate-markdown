@@ -20,6 +20,11 @@ const MarkdownPlugin = (options: Options = {}) => {
 
   return {
     schema: {
+      nodes: {
+        line: ({ attributes, children }: any) => (
+          <p {...attributes}>{children}</p>
+        ),
+      },
       marks: {
         title: (props: any) => {
           const { attributes, children, mark: { data } } = props;
@@ -32,7 +37,7 @@ const MarkdownPlugin = (options: Options = {}) => {
               style={{
                 fontWeight: 'bold',
                 fontSize,
-                margin: `1em 0 0.5em 0`,
+                margin: `0.5em 0 0.25em 0`,
                 display: 'inline-block',
               }}
             >
