@@ -10,7 +10,13 @@ type Options = {
 };
 
 const MarkdownPlugin = (options: Options = {}) => {
-  const sizes = options.sizes || ['2.441em', '1.953em', '1.563em', '1.25em'];
+  const sizes = options.sizes || [
+    '2.441em',
+    '1.953em',
+    '1.563em',
+    '1.25em',
+    '1em',
+  ];
 
   return {
     schema: {
@@ -18,7 +24,8 @@ const MarkdownPlugin = (options: Options = {}) => {
         title: (props: any) => {
           const { attributes, children, mark: { data } } = props;
           const level = data.get('level');
-          const fontSize = (level && sizes[level - 1]) || '1em';
+          const fontSize =
+            (level && sizes[level - 1]) || sizes[sizes.length - 1];
           return (
             <span
               {...attributes}
