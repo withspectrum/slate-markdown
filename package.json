@@ -1,6 +1,6 @@
 {
   "name": "slate-markdown",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Add live markdown preview support to your Slate editor.",
   "repository": {
     "type": "git",
