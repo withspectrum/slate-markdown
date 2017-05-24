@@ -35,12 +35,11 @@
     "rimraf": "^2.6.1"
   },
   "peerDependencies": {
-    "react": "^15.5.4"
-  },
-  "dependencies": {
-    "prismjs": "^1.6.0",
     "react": "^15.5.4",
     "slate": "^0.19.29"
+  },
+  "dependencies": {
+    "prismjs": "^1.6.0"
   },
   "keywords": [
     "slate",
