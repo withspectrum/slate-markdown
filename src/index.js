@@ -27,7 +27,7 @@ type Classnames =
 
 type Options = {
   sizes?: Array<string>,
-  classNames?: {
+  classnames?: {
     [key: Classnames]: string,
   },
 };
@@ -41,7 +41,7 @@ const MarkdownPlugin = (options: Options = {}) => {
     '1em',
   ];
 
-  const classNames = options.classNames || {};
+  const classnames = options.classnames || {};
 
   return {
     schema: {
@@ -59,7 +59,7 @@ const MarkdownPlugin = (options: Options = {}) => {
           return (
             <Title
               {...attributes}
-              className={classNames.title}
+              className={classnames.title}
               fontSize={fontSize}
             >
               {children}
@@ -70,49 +70,49 @@ const MarkdownPlugin = (options: Options = {}) => {
           <Bold
             {...props.attributes}
             children={props.children}
-            className={classNames.bold}
+            className={classnames.bold}
           />
         ),
         italic: (props: any) => (
           <Italic
             {...props.attributes}
             children={props.children}
-            className={classNames.italic}
+            className={classnames.italic}
           />
         ),
         punctuation: (props: any) => (
           <Punctuation
             {...props.attributes}
             children={props.children}
-            className={classNames.punctuation}
+            className={classnames.punctuation}
           />
         ),
         code: (props: any) => (
           <Code
             {...props.attributes}
             children={props.children}
-            className={classNames.code}
+            className={classnames.code}
           />
         ),
         list: (props: any) => (
           <List
             {...props.attributes}
             children={props.children}
-            className={classNames.list}
+            className={classnames.list}
           />
         ),
         hr: (props: any) => (
           <Hr
             {...props.attributes}
             children={props.children}
-            className={classNames.hr}
+            className={classnames.hr}
           />
         ),
         url: (props: any) => (
           <Url
             {...props.attributes}
             children={props.children}
-            className={classNames.url}
+            className={classnames.url}
           />
         ),
       },
