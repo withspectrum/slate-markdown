@@ -4,9 +4,32 @@
  */
 import React from 'react';
 import decorate from './decorator';
+import {
+  Title,
+  Bold,
+  Italic,
+  Punctuation,
+  Code,
+  List,
+  Hr,
+  Url,
+} from './components';
+
+type Classnames =
+  | 'title'
+  | 'bold'
+  | 'italic'
+  | 'punctuation'
+  | 'code'
+  | 'list'
+  | 'hr'
+  | 'url';
 
 type Options = {
   sizes?: Array<string>,
+  classNames?: {
+    [key: Classnames]: string,
+  },
 };
 
 const MarkdownPlugin = (options: Options = {}) => {
@@ -17,6 +40,8 @@ const MarkdownPlugin = (options: Options = {}) => {
     '1.25em',
     '1em',
   ];
+
+  const classNames = options.classNames || {};
 
   return {
     schema: {
@@ -32,47 +57,64 @@ const MarkdownPlugin = (options: Options = {}) => {
           const fontSize =
             (level && sizes[level - 1]) || sizes[sizes.length - 1];
           return (
-            <span
+            <Title
               {...attributes}
-              style={{
-                fontWeight: 'bold',
-                fontSize,
-                margin: `0.5em 0 0.25em 0`,
-                display: 'inline-block',
-              }}
+              className={classNames.title}
+              fontSize={fontSize}
             >
               {children}
-            </span>
+            </Title>
           );
         },
-        bold: {
-          fontWeight: 'bold',
-        },
-        italic: {
-          fontStyle: 'italic',
-        },
-        punctuation: {
-          opacity: 0.2,
-        },
-        code: {
-          fontFamily: 'monospace',
-          display: 'inline-block',
-          padding: '2px 1px',
-        },
-        list: {
-          paddingLeft: '10px',
-          lineHeight: '10px',
-          fontSize: '20px',
-        },
-        hr: {
-          borderBottom: '2px solid #000',
-          display: 'block',
-          opacity: 0.2,
-        },
-        url: {
-          color: 'blue',
-          textDecoration: 'underline',
-        },
+        bold: (props: any) => (
+          <Bold
+            {...props.attributes}
+            children={props.children}
+            className={classNames.bold}
+          />
+        ),
+        italic: (props: any) => (
+          <Italic
+            {...props.attributes}
+            children={props.children}
+            className={classNames.italic}
+          />
+        ),
+        punctuation: (props: any) => (
+          <Punctuation
+            {...props.attributes}
+            children={props.children}
+            className={classNames.punctuation}
+          />
+        ),
+        code: (props: any) => (
+          <Code
+            {...props.attributes}
+            children={props.children}
+            className={classNames.code}
+          />
+        ),
+        list: (props: any) => (
+          <List
+            {...props.attributes}
+            children={props.children}
+            className={classNames.list}
+          />
+        ),
+        hr: (props: any) => (
+          <Hr
+            {...props.attributes}
+            children={props.children}
+            className={classNames.hr}
+          />
+        ),
+        url: (props: any) => (
+          <Url
+            {...props.attributes}
+            children={props.children}
+            className={classNames.url}
+          />
+        ),
       },
       rules: [
         {
