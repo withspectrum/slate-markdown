@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Title = styled.span`
   font-weight: bold;
   font-size: ${p => p.fontSize};
-  margin: 0.5em 0 0.25em 0;
+  margin: 1em 0 0.5em 0;
   display: inline-block;
 `;
 
@@ -23,7 +23,10 @@ export const Punctuation = styled.span`
 export const Code = styled.span`
   font-family: monospace;
   display: inline-block;
-  padding: 2px 1px;
+  padding: 0 0.2em;
+  margin: 0;
+  background-color: rgba(27,31,35,0.05);
+  border-radius: 3px;
 `;
 
 export const List = styled.span`
