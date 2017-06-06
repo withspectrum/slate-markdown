@@ -23,8 +23,7 @@ type Classnames =
   | 'code'
   | 'list'
   | 'hr'
-  | 'url'
-  | 'line';
+  | 'url';
 
 type Options = {
   sizes?: Array<string>,
@@ -49,11 +48,6 @@ const MarkdownPlugin = (options: Options = {}) => {
 
   return {
     schema: {
-      nodes: {
-        line: ({ attributes, children }: any) => (
-          <p {...attributes} className={classnames.line}>{children}</p>
-        ),
-      },
       marks: {
         title: (props: any) => {
           const { attributes, children, mark: { data } } = props;
