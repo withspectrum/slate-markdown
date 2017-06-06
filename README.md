@@ -1,6 +1,6 @@
 # `slate-markdown`
 
-Add live markdown preview support to your Slate editor.
+Add a live markdown preview to your Slate editor.
 
 ## Installation
 
@@ -23,7 +23,7 @@ const markdown = MarkdownPlugin();
 
 ## Options
 
-### `sizes`
+### `sizes` (default: `['2.441em', '1.953em', '1.563em', '1.25em', '1em']`)
 
 A list of sizes to use for the headings, the index + 1 is used for the level
 
@@ -31,7 +31,7 @@ A list of sizes to use for the headings, the index + 1 is used for the level
 const markdown = MarkdownPlugin({
   // This is the default:
   sizes: ['2.441em', '1.953em', '1.563em', '1.25em', '1em'],
-  //        ^ h1       ^ h2       ^ h3       ^ h4     ^ h5
+  //       ^ h1       ^ h2       ^ h3       ^ h4      ^ h5
 })
 ```
 
@@ -53,6 +53,18 @@ Possible keys are for the object are:
 ```javascript
 'title' | 'bold' | 'italic' | 'punctuation' | 'code' | 'list' | 'hr' | 'url'
 ```
+
+### `strict` (default: `true`)
+
+This plugin uses PrismJS for highlighting the markdown. By default the Prism markdown grammar extends the markup grammar, and thusly supports things like `<tag>`s, `<script>`s etc.
+
+This option disables the inherited HTML grammar, only allowing actual markdown to pass through. Set this to `false` if you want to highlight HTML within the markdown.
+
+## Roadmap
+
+This plugin is fairly complete (± small bugs) and used in production by us at [Spectrum](https://spectrum.chat). Nevertheless, there's some features we want to implement in the future:
+
+- [ ] GitHub-style codeblocks with triple backticks
 
 ## License
 
