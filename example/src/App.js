@@ -5,10 +5,18 @@ import MarkdownPlugin from '../../dist/index.js';
 
 import Heading from './Heading';
 
+const Wrapper = styled.div`
+  max-width: 768px;
+  margin: 0 auto;
+`;
+
+const Text = styled.p`
+  font-size: 1em;
+`;
+
 const Editor = styled($Editor)`
   background-color: #FFF;
   padding: 1em;
-  margin: 0 1em;
   border-radius: 5px;
   border: 1px solid #CCC;
 `;
@@ -34,15 +42,24 @@ class App extends Component {
   render() {
     const { state, plugins } = this.state;
     return (
-      <div>
-        <Heading>Slate Markdown</Heading>
+      <Wrapper>
+        <Heading>slate-markdown</Heading>
+        <Text>
+          Add live markdown preview to your Slate editor. Try it below!
+        </Text>
         <Editor
           state={state}
           plugins={plugins}
           onChange={this.onChange}
           placeholder={'You can write markdown here! (try "## Hello")'}
         />
-      </div>
+        <Text>
+          Installation and usage instructions on
+          {' '}<a href="https://github.com/withspectrum/slate-markdown">
+            GitHub
+          </a>!
+        </Text>
+      </Wrapper>
     );
   }
 }
