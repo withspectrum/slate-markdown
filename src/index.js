@@ -3,7 +3,7 @@
  * Most of this was stolen from https://github.com/ianstormtaylor/slate/blob/460498b5ddfcecee7439eafe4f4d31cacde69f41/examples/markdown-preview/index.js
  */
 import React from 'react';
-import decorate from './decorator';
+import getDecorator from './decorator';
 import {
   Title,
   Bold,
@@ -30,6 +30,7 @@ type Options = {
   classnames?: {
     [key: Classnames]: string,
   },
+  strict?: boolean,
 };
 
 const MarkdownPlugin = (options: Options = {}) => {
@@ -42,6 +43,8 @@ const MarkdownPlugin = (options: Options = {}) => {
   ];
 
   const classnames = options.classnames || {};
+
+  const strict = options.strict;
 
   return {
     schema: {
@@ -119,7 +122,7 @@ const MarkdownPlugin = (options: Options = {}) => {
       rules: [
         {
           match: () => true,
-          decorate,
+          decorate: getDecorator({ strict }),
         },
       ],
     },

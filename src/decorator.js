@@ -5,6 +5,29 @@ import { Mark, Data } from 'slate';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-markdown';
 
+type Options = {
+  strict?: boolean,
+};
+const defaultOptions = {
+  strict: true,
+};
+function getDecorator({ strict = true }: Options) {
+  if (strict) {
+    // Delete all highlighting inherited from HTML
+    Prism.languages.markdown = Object.assign({}, Prism.languages.markdown, {
+      doctype: undefined,
+      comment: undefined,
+      prolog: undefined,
+      script: undefined,
+      style: undefined,
+      entity: undefined,
+      cdata: undefined,
+      tag: undefined,
+    });
+  }
+  return markdownDecorator;
+}
+
 /**
  * Define a decorator for markdown styles.
  *
@@ -55,4 +78,4 @@ function addMarks(characters, tokens, offset) {
   }
 }
 
-export default markdownDecorator;
+export default getDecorator;
