@@ -53,6 +53,7 @@ class App extends Component {
           onChange={this.onChange}
           sizes={['2em', '1.5874em', '1.2599em', '1em', '1em']}
           placeholder={'You can write markdown here! (try "## Hello")'}
+          autoFocus
         />
       </Wrapper>
     );
