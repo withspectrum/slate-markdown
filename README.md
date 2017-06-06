@@ -71,9 +71,39 @@ This option disables the inherited HTML grammar, only allowing actual markdown t
 
 ## Roadmap
 
-This plugin is fairly complete (± small bugs) and used in production by us at [Spectrum](https://spectrum.chat). Nevertheless, there's some features we want to implement in the future:
+This plugin is fairly complete (± small bugs) and used in production by us at [Spectrum](https://spectrum.chat). Nevertheless, there's some features we are looking to implement in the future:
 
 - [ ] GitHub-style codeblocks with triple backticks
+
+If you want to help out with any of these, please feel free to submit PRs!
+
+## Development
+
+Development of this plugin is done via the `example/` app. Here's how to get the plugin building locally:
+
+```sh
+# Download the repo
+git clone https://github.com/withspectrum/slate-markdown
+# Install the dependencies of the package
+cd slate-markdown
+npm install
+# Start the build process with a watcher
+npm run build -- --watch # (notice the extra --, you need those!)
+```
+
+To see your local version of the plugin locally open another terminal tab and run these commands:
+
+```sh
+# Get into the example folder (this is assuming you're already in the slate-markdown folder)
+cd example
+# Install the example dependencies
+npm install
+# Run the example locally, this should open a browser tab
+npm start
+# If this doesn't open a browser tab open http://localhost:3000 manually
+```
+
+Now whenever you change the package the example app will reload automatically with the new code.
 
 ## License
 
