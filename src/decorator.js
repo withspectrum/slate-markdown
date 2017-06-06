@@ -25,6 +25,7 @@ function getDecorator({ strict = true }: Options) {
       tag: undefined,
     });
   }
+  // Prism.languages.markdown.code[0].pattern = /^\`{3}(?:\r?\n|\r)(?:(?:\r?\n|\r)|.*)*^\`{3}/m;
   return markdownDecorator;
 }
 
@@ -41,11 +42,11 @@ function markdownDecorator(text: any, block: any) {
   const string = text.text;
   const grammar = Prism.languages[language];
   const tokens = Prism.tokenize(string, grammar);
-  addMarks(characters, tokens, 0);
+  addMarks(characters, tokens);
   return characters.asImmutable();
 }
 
-function addMarks(characters, tokens, offset) {
+function addMarks(characters, tokens, offset = 0) {
   for (const token of tokens) {
     if (typeof token == 'string') {
       offset += token.length;
