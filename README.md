@@ -1,6 +1,7 @@
 <div align="center">
   <img alt="slate-markdown" src="https://cloud.githubusercontent.com/assets/7525670/26826026/a457bb8a-4ab7-11e7-8db4-bfe3ac67a726.png" />
   <br />
+  <br />
   <p>Add live markdown preview to your Slate editor.</p>
   <br />
   <p>Demo: <a href="https://slate-markdown.spectrum.chat">slate-markdown.spectrum.chat</a></p>
