@@ -51,7 +51,7 @@ const markdown = MarkdownPlugin({
 Possible keys are for the object are:
 
 ```javascript
-'title' | 'bold' | 'italic' | 'punctuation' | 'code' | 'list' | 'hr' | 'url'
+'title' | 'bold' | 'italic' | 'punctuation' | 'code' | 'list' | 'hr' | 'url' | 'line'
 ```
 
 ## License
