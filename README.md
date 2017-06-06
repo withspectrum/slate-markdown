@@ -1,6 +1,8 @@
-# `slate-markdown`
-
-Add a live markdown preview to your Slate editor.
+<div align="center">
+  <img alt="slate-markdown" src="https://cloud.githubusercontent.com/assets/7525670/26826026/a457bb8a-4ab7-11e7-8db4-bfe3ac67a726.png" />
+  <br />
+  <p>Add live markdown preview to your Slate editor.</p>
+</div>
 
 ## Installation
 
@@ -23,7 +25,9 @@ const markdown = MarkdownPlugin();
 
 ## Options
 
-### `sizes` (default: `['2.441em', '1.953em', '1.563em', '1.25em', '1em']`)
+### `sizes`
+
+*(default: `['2.441em', '1.953em', '1.563em', '1.25em', '1em']`)*
 
 A list of sizes to use for the headings, the index + 1 is used for the level
 
@@ -54,7 +58,9 @@ Possible keys are for the object are:
 'title' | 'bold' | 'italic' | 'punctuation' | 'code' | 'list' | 'hr' | 'url'
 ```
 
-### `strict` (default: `true`)
+### `strict`
+
+*(default: `true`)*
 
 This plugin uses PrismJS for highlighting the markdown. By default the Prism markdown grammar extends the markup grammar, and thusly supports things like `<tag>`s, `<script>`s etc.
 
