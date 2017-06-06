@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import { Editor as $Editor, Plain } from 'slate';
 import styled from 'styled-components';
-import MarkdownPlugin from '../../dist/index.js';
+
+let MarkdownPlugin;
+
+if (process.env.NODE === 'production') {
+  MarkdownPlugin = require('slate-markdown').default;
+} else {
+  MarkdownPlugin = require('../../dist/index.js').default;
+}
 
 import Heading from './Heading';
 
@@ -55,7 +62,8 @@ class App extends Component {
         />
         <Text>
           Installation and usage instructions on
-          {' '}<a href="https://github.com/withspectrum/slate-markdown">
+          {' '}
+          <a href="https://github.com/withspectrum/slate-markdown">
             GitHub
           </a>!
         </Text>

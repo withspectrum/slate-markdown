@@ -9,7 +9,8 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "slate": "^0.19.29",
-    "styled-components": "^1.4.6"
+    "styled-components": "^1.4.6",
+    "slate-markdown": "^0.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
